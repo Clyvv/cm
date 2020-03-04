@@ -1,21 +1,14 @@
 spring:
    datasource:
-      url: jdbc:mysql://localhost:3306/cm_db
+      url: jdbc:mysql://localhost:3306/cm_db?createDatabaseIfNotExist=true&useSSL=true
       username: root
       password: password
+      driverClassName: com.mysql.jdbc.Driver
    jpa:
       show-sql: true
       hibernate:
-         ddl-auto: update
+         ddl-auto: create
          naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
       properties:
          hibernate:
             dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-               
-   security:
-     oauth2:
-       client:
-         registration:
-           facebook:
-             clientId: 601758057311517
-             clientSecret: bded2cd6cfd9ab5bd1efc9201d73c5cc

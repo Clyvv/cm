@@ -21,10 +21,6 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-core</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
@@ -71,10 +67,11 @@
   			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<!-- JWT library -->
+		<!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
 		<dependency>
-			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt</artifactId>
-			<version>0.5.1</version>
+			<groupId>com.auth0</groupId>
+			<artifactId>java-jwt</artifactId>
+			<version>3.10.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax.xml/jaxb-api -->
 <dependency>

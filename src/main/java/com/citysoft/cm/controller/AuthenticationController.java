@@ -50,7 +50,7 @@ public class AuthenticationController {
 			
 			return ResponseEntity.ok(new AuthenticationResponse(jwt));
 		}catch(BadCredentialsException e) {
-			throw new Exception("Incorect email or password", e);
+			throw new Exception("Incorrect email or password", e);
 		}
          
     }

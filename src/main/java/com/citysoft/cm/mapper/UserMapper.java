@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.citysoft.cm.dto.UserDto;
@@ -16,14 +17,20 @@ public class UserMapper {
 
 	@Autowired
     private ModelMapper modelMapper;
+
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	public UserDto convertToDto(User user) {
-		return modelMapper.map(user, UserDto.class);
-		
+		UserDto dto = modelMapper.map(user, UserDto.class);
+		dto.setPassword(null);
+		return dto;
 	}
 	
 	public User convertToEntity(UserDto dto) {
-	    return modelMapper.map(dto, User.class);
+		User user = modelMapper.map(dto, User.class);
+		user.setPassword(bCryptPasswordEncoder.encode(dto.getPassword()));
+	    return user;
 	}
 	public Set<UserDto> convertToDto(List<User> users) {
 		
